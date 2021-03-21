@@ -1,0 +1,9 @@
+*.7z
+*.zip
+node_modules
+hxim-web
+__MACOSX
+.idea
+*.DS_Store
+.vscode
+
