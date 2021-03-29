@@ -3,6 +3,7 @@ import WriteFile from "./writeFile";
 import Line from "./Line";
 import qs from "./questions";
 import getMembers from "./members";
+import * as chalk from "chalk";
 
 const filename = "OWNERS";
 
@@ -40,6 +41,7 @@ async function init() {
     defaultConfig.threshold = answers.threshold;
   }
   WriteFile(defaultConfig);
+  console.log(chalk.yellow(`OWNERS写入成功！`));
 }
 
 init();
