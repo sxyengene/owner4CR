@@ -17,7 +17,7 @@ const defaultConfig = {
 async function init() {
   const answers = await qs();
   const memberObject = await getMembers();
-  console.log("answers", answers);
+  // console.log("answers", answers);
 
   if (answers.old) {
     await setParamsToDefaultConfigFromOldOwnerFile();

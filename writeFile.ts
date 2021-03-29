@@ -11,7 +11,7 @@ function WriteOWNER(defaultConfig) {
 
     fileData += `${key}:${tmp}\r\n`;
   }
-  console.log(fileData);
+  // console.log(fileData);
 
   fs.writeFileSync("OWNERS", fileData, { flag: "w" });
 }
