@@ -2,11 +2,12 @@
   "name": "@ali/owner4cr",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "bin": {
-    "addOwner": "index.js"
+    "addOwner": "dist/index.js"
   },
   "scripts": {
+    "build": "tsc --outDir ./dist index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

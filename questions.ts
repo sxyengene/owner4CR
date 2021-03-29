@@ -55,6 +55,26 @@ const questions: question[] = [
       },
     ],
   },
+  {
+    message: "项目合并前需要几票CR通过？",
+    name: "threshold",
+    type: "list",
+    choices: [
+      {
+        name: "1",
+        value: "1",
+        checked: true,
+      },
+      {
+        name: "2",
+        value: "2",
+      },
+      {
+        name: "3",
+        value: "3",
+      },
+    ],
+  },
 ];
 
 function qs() {

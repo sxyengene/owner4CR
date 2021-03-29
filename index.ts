@@ -11,7 +11,7 @@ const watchers = [];
 const defaultConfig = {
   reviewers,
   watchers,
-  threshold: 3,
+  threshold: 1,
 };
 
 async function init() {
@@ -35,8 +35,11 @@ async function init() {
     //   memberObject[answers.member]
     // );
     defaultConfig.reviewers = Array.from(new Set(defaultConfig.reviewers));
-    WriteFile(defaultConfig);
   }
+  if (answers.threshold) {
+    defaultConfig.threshold = answers.threshold;
+  }
+  WriteFile(defaultConfig);
 }
 
 init();
