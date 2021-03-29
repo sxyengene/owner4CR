@@ -10,6 +10,9 @@
     "build": "tsc --outDir ./dist index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "publishConfig": {
+    "registry": "https://registry.npm.alibaba-inc.com"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sxyengene/owner4CR.git"
