@@ -1,62 +1,28 @@
-const memberObject = {
-  all: [
-    "jifeng.ljf",
-    "atian.wt",
-    "amie.lym",
-    "yiqian.lsq",
-    "yxy245652",
-    "yajuan.syj",
-    "huanyu.ww",
-    "alei.xl",
-    "guoyannan.gyn",
-    "dengqing.yh",
-    "houfa.zxh",
-    "zhisheng.zzs",
-    "jihang.gjh",
-    "yangguang.xm",
-    "sunxiongying.sxy",
-    "yuxinzheng.yxz",
-    "runjiao.zrj",
-    "qiuqiu.wqq",
-    "albert.zx",
-    "cp166450",
-    "dingyufeng.dyf",
-    "jiafu.pjf",
-    "xuanyuan.lwz",
-    "wayne.wb",
-  ],
-  self_business: [
-    "jifeng.ljf",
-    "atian.wt",
-    "amie.lym",
-    "yiqian.lsq",
-    "yxy245652",
-    "yajuan.syj",
-    "huanyu.ww",
-    "alei.xl",
-    "guoyannan.gyn",
-    "dengqing.yh",
-    "houfa.zxh",
-    "zhisheng.zzs",
-    "jihang.gjh",
-    "yangguang.xm",
-    "sunxiongying.sxy",
-    "maolonglong.mll",
-    "wulinchong.wlc",
-    "xiaofei.zf",
-  ],
-  qiye: [
-    "jifeng.ljf",
-    "yuxinzheng.yxz",
-    "runjiao.zrj",
-    "qiuqiu.wqq",
-    "albert.zx",
-    "cp166450",
-    "dingyufeng.dyf",
-    "jiafu.pjf",
-    "xuanyuan.lwz",
-    "wayne.wb",
-    "xuezhiqiang.xzq",
-  ],
+import got from "got";
+
+type OwnerList = {
+  self?: string[];
+  business?: string[];
+  company?: string[];
+  all?: string[];
 };
-export default memberObject;
+const OwnerList: OwnerList = {};
+
+async function getMembers() {
+  let { body } = await got(
+    "https://render.alipay.com/p/h5data/owners4cr_ownerlist-h5data.json"
+  );
+  body = JSON.parse(body);
+
+  Object.keys(body).forEach((value) => {
+    OwnerList[value] = body[value].map((x) => x.name);
+  });
+  OwnerList.all = [
+    ...OwnerList.self,
+    ...OwnerList.business,
+    ...OwnerList.company,
+  ];
+  return OwnerList;
+}
+
+export default getMembers;

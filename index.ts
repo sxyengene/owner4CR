@@ -2,9 +2,9 @@
 import WriteFile from "./writeFile";
 import Line from "./Line";
 import qs from "./questions";
-import memberObject from "./members";
+import getMembers from "./members";
 
-const filename = "o1";
+const filename = "OWNERS";
 
 const reviewers = [];
 const watchers = [];
@@ -16,15 +16,24 @@ const defaultConfig = {
 
 async function init() {
   const answers = await qs();
+  const memberObject = await getMembers();
   console.log("answers", answers);
 
   if (answers.old) {
-    setParamsToDefaultConfigFromOldOwnerFile();
+    await setParamsToDefaultConfigFromOldOwnerFile();
   }
   if (answers.member) {
-    defaultConfig.reviewers = defaultConfig.reviewers.concat(
-      memberObject[answers.member]
+    answers.member.map(
+      (x) =>
+        (defaultConfig.reviewers = [
+          ...defaultConfig.reviewers,
+          ...memberObject[x],
+        ])
     );
+
+    // defaultConfig.reviewers = defaultConfig.reviewers.concat(
+    //   memberObject[answers.member]
+    // );
     defaultConfig.reviewers = Array.from(new Set(defaultConfig.reviewers));
     WriteFile(defaultConfig);
   }

@@ -1,5 +1,5 @@
 {
-  "name": "owner4CR",
+  "name": "@ali/owner4cr",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -21,9 +21,8 @@
   },
   "homepage": "https://github.com/sxyengene/owner4CR#readme",
   "dependencies": {
-    "@types/node": "^14.14.35"
-  },
-  "devDependencies": {
+    "@types/node": "^14.14.35",
+    "got": "^11.8.2",
     "inquirer": "^8.0.0"
   }
 }

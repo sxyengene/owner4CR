@@ -34,7 +34,7 @@ const questions: question[] = [
   {
     message: "请选择该项目CR需要的成员",
     name: "member",
-    type: "list",
+    type: "checkbox",
     choices: [
       {
         name: "整组",
@@ -42,20 +42,16 @@ const questions: question[] = [
         checked: true,
       },
       {
-        name: "个人&商业",
-        value: "self_business",
+        name: "个人",
+        value: "self",
       },
-      //   {
-      //     name: "个人",
-      //     value: "self",
-      //   },
-      //   {
-      //     name: "商业",
-      //     value: "business",
-      //   },
+      {
+        name: "商业",
+        value: "business",
+      },
       {
         name: "企业",
-        value: "qiye",
+        value: "company",
       },
     ],
   },
