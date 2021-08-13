@@ -32,14 +32,14 @@ const questions: question[] = [
     default: false,
   },
   {
-    message: "请选择该项目CR需要的成员",
+    message:
+      "请选择该项目CR需要的成员，“space键”勾选，“enter”键确认，直接enter代表全组",
     name: "member",
     type: "checkbox",
     choices: [
       {
         name: "整组",
         value: "all",
-        checked: true,
       },
       {
         name: "个人",

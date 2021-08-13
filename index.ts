@@ -18,25 +18,26 @@ const defaultConfig = {
 async function init() {
   const answers = await qs();
   const memberObject = await getMembers();
-  // console.log("answers", answers);
+  // console.log("memberObject", JSON.stringify(memberObject));
 
   if (answers.old) {
     await setParamsToDefaultConfigFromOldOwnerFile();
   }
-  if (answers.member) {
-    answers.member.map(
-      (x) =>
-        (defaultConfig.reviewers = [
-          ...defaultConfig.reviewers,
-          ...memberObject[x],
-        ])
-    );
+  answers.member = answers.member.length ? answers.member : ["all"];
+  answers.member.map(
+    (x) =>
+      (defaultConfig.reviewers = [
+        ...defaultConfig.reviewers,
+        ...memberObject[x],
+      ])
+  );
+  console.log("answers", answers);
 
-    // defaultConfig.reviewers = defaultConfig.reviewers.concat(
-    //   memberObject[answers.member]
-    // );
-    defaultConfig.reviewers = Array.from(new Set(defaultConfig.reviewers));
-  }
+  // defaultConfig.reviewers = defaultConfig.reviewers.concat(
+  //   memberObject[answers.member]
+  // );
+  defaultConfig.reviewers = Array.from(new Set(defaultConfig.reviewers));
+
   if (answers.threshold) {
     defaultConfig.threshold = answers.threshold;
   }
