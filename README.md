@@ -8,8 +8,9 @@ ts-node index.ts
 
 1. npm run build
 2. npm version patch
-3. tnpm login
-4. tnpm publish
+3. git push
+4. tnpm login
+5. tnpm publish
 
 # 第二次使用无需执行，更新时再次执行
 
