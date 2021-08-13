@@ -53,6 +53,14 @@ const questions: question[] = [
         name: "企业",
         value: "company",
       },
+      {
+        name: "个人账户",
+        value: "custAccount",
+      },
+      {
+        name: "约定",
+        value: "contract",
+      },
     ],
   },
   {

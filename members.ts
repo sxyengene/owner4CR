@@ -4,6 +4,8 @@ type OwnerList = {
   self?: string[];
   business?: string[];
   company?: string[];
+  custAccount?: string[];
+  contract?: string[];
   all?: string[];
 };
 const OwnerList: OwnerList = {};
@@ -21,6 +23,8 @@ async function getMembers() {
     ...OwnerList.self,
     ...OwnerList.business,
     ...OwnerList.company,
+    ...OwnerList.custAccount,
+    ...OwnerList.contract,
   ];
   return OwnerList;
 }
